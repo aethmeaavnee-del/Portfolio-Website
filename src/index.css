@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Crimson Text", "Georgia", serif;
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  
+  --color-brand-bg: #FCEEEF;
+  --color-brand-primary: #8B2E3C;
+  --color-brand-text: #8B2E3C;
+  --color-brand-accent: #E53935;
+  --color-brand-muted: #9C3A4A;
+  --color-brand-border: rgba(139, 46, 60, 0.2);
+  --color-brand-panel-bg: #fffafb;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal;
+  }
+}
+
+/* Custom theme classes */
+.theme-panel {
+  @apply bg-brand-panel-bg transition-all duration-400 ease-[ease] border border-brand-border;
+}
+
+.theme-panel:hover {
+  @apply md:-translate-y-2.5 shadow-[0_20px_40px_rgba(139,46,60,0.08)];
+}
+
+.theme-grid-item {
+  @apply border border-brand-border bg-white p-5;
+}
+
+.theme-btn-contact {
+  @apply px-6 py-2.5 border border-brand-primary text-[13px] uppercase tracking-wider cursor-pointer transition-all duration-300 ease-[ease];
+}
+
+.theme-btn-contact:hover {
+  @apply bg-brand-primary text-brand-bg;
+}
+
+.theme-btn-primary {
+  @apply inline-block px-10 py-4.5 bg-brand-primary text-brand-bg text-[14px] tracking-[2px] font-semibold uppercase cursor-pointer transition-all duration-300;
+}
+
+.page-container {
+  @apply min-h-screen w-full flex flex-col;
+}
