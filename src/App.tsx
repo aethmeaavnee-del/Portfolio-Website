@@ -4,7 +4,7 @@
  */
 
 import { AnimatePresence, motion } from "motion/react";
-import { ArrowLeft, Instagram, Linkedin, Maximize2, X } from "lucide-react";
+import { ArrowLeft, Mail, Linkedin, Maximize2, X } from "lucide-react";
 import { useState } from "react";
 
 // --- Types ---
@@ -23,29 +23,26 @@ interface GalleryItem {
 
 const PROJECTS: GalleryItem[] = [
   // Adobe Creations (6 items)
-  { id: "a1", title: "Visual Branding", description: "Comprehensive brand identity system using Adobe Illustrator and Photoshop.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.png?raw=true", category: "ADOBE" },
-  { id: "a2", title: "Digital Collage", description: "Experimental surrealism created through intricate layer masking in Photoshop.", image: "https://github.com/aethmeaavnee-del/y/blob/main/4.png?raw=true", category: "ADOBE" },
-  { id: "a3", title: "Marketing Campaign", description: "Social media kit designed for a modern lifestyle brand.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/6.png?raw=true", category: "ADOBE" },
-  { id: "a4", title: "UI Mockup", description: "High-fidelity interface design for a travel app concept.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/8.png?raw=true", category: "ADOBE" },
-  { id: "a5", title: "Print Media", description: "Poster design emphasizing typographic hierarchy and white space.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.png?raw=true", category: "ADOBE" },
-  { id: "a6", title: "Motion Graphics", description: "Still frames from a conceptual motion design project.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/3.png?raw=true", category: "ADOBE" },
+  { id: "a1", title: "Manali Destination Brochure", description: "A professional tri-fold brochure designed for a travel agency, balancing vibrant landscape photography with a detailed 5-day itinerary. This project emphasizes information hierarchy and a clean, traveler-friendly layout.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.png?raw=true", category: "ADOBE" },
+  { id: "a2", title: "Event Visuals", description: "Bringing the energy of the Goa nightlife to digital print. This design balances the iconic Sunburn branding with a clear, scan-friendly layout, optimized for social media promotion and physical distribution.", image: "https://github.com/aethmeaavnee-del/y/blob/main/4.png?raw=true", category: "ADOBE" },
+  { id: "a3", title: "Editorial Layout", description: "A high-impact cover design which demonstrates a strong grasp of magazine branding, information hierarchy, and the use of digital textures to simulate a sports turf environment.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/6.png?raw=true", category: "ADOBE" },
+  { id: "a4", title: "Event Collateral Design", description: "This design showcases advanced photo manipulation and compositing, balancing multiple snapshot windows against a core portrait.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/8.png?raw=true", category: "ADOBE" },
+  { id: "a5", title: "Food Thumbnail", description: "Vibrant, lifestyle-focused graphic created for a culinary series. This project focuses on visual persuasion, using high-saturation colors to trigger appetite and urgency.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.png?raw=true", category: "ADOBE" },
+  { id: "a6", title: "Admission Campaign Flyer", description: "A vibrant, high-energy promotional flyer designed for the education sector. This project focuses on converting viewers into applicants, easy-to-read layout that appeals to both parents and students..", image: "https://github.com/aethmeaavnee-del/myself/blob/main/3.png?raw=true", category: "ADOBE" },
 
   // Logo Design (4 items)
-  { id: "l1", title: "Minimalist Apex", description: "Geometric abstraction for a tech startup.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.jpg?raw=true", category: "LOGO" },
-  { id: "l2", title: "Eco Leaf", description: "Organic mark for a sustainable fashion brand.", image: "https://github.com/aethmeaavnee-del/juuu/blob/main/2.jpg?raw=true", category: "LOGO" },
-  { id: "l3", title: "Modern Slate", description: "Monochrome wordmark for an architecture firm.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.jpeg?raw=true", category: "LOGO" },
-  { id: "l4", title: "Modern Slate", description: "Monochrome wordmark for an architecture firm.", image: "https://github.com/aethmeaavnee-del/juuu/blob/main/4.png?raw=true", category: "LOGO" },
+  { id: "l1", title: "Smart Mirror Logo", description: "A luxury-tech logo designed for an AI-powered smart mirror. This design harmonizes the elegance of the beauty industry with the precision of artificial intelligence.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.jpg?raw=true", category: "LOGO" },
+  { id: "l2", title: "Identity for Premium Jewelry", description: "A striking brand mark designed for a contemporary jewelry line. This logo utilizes a stylized diamond silhouette with sharp, geometric lines to symbolize strength and clarity.", image: "https://github.com/aethmeaavnee-del/juuu/blob/main/2.jpg?raw=true", category: "LOGO" },
+  { id: "l3", title: "Mocktail Brand Logo", description: "A custom brand mark for a premium mocktail line. This design pays homage to mid-century aesthetics and classic cocktail culture.", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.jpeg?raw=true", category: "LOGO" },
+  { id: "l4", title: "Coffee Shop Logo", description: "This branding asset uses a balanced circular layout and high-contrast earth tones to create a memorable, upscale identity for a specialty coffee house.", image: "https://github.com/aethmeaavnee-del/juuu/blob/main/4.png?raw=true", category: "LOGO" },
 
-  // Photography (9 items)
-  { id: "p1", title: "Golden Hour", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.JPG?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p2", title: "Urban Monologue", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p3", title: "Vibrant Shadows", image: "https://github.com/aethmeaavnee-del/myself/blob/main/10.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p4", title: "Minimal Horizon", image: "https://github.com/aethmeaavnee-del/myself/blob/main/12.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p5", title: "Textures of Time", image: "https://github.com/aethmeaavnee-del/myself/blob/main/6.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p6", title: "Ethereal Light", image: "https://github.com/aethmeaavnee-del/myself/blob/main/7.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p7", title: "Ethereal Light", image: "https://github.com/aethmeaavnee-del/bfd/blob/main/2.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p8", title: "Ethereal Light", image: "https://github.com/aethmeaavnee-del/bfd/blob/main/8.jpg?raw=true", category: "PHOTOGRAPHY" },
-  { id: "p9", title: "Ethereal Light", image: "https://github.com/aethmeaavnee-del/rtgbh/blob/main/11.jpg?raw=true", category: "PHOTOGRAPHY" },
+  // Photography (6 items)
+  { id: "p1", title: "Lakeside View", image: "https://github.com/aethmeaavnee-del/myself/blob/main/1.JPG?raw=true", category: "PHOTOGRAPHY" },
+  { id: "p2", title: "Stray Profile", image: "https://github.com/aethmeaavnee-del/myself/blob/main/5.jpg?raw=true", category: "PHOTOGRAPHY" },
+  { id: "p3", title: "The Pottery Porch", image: "https://github.com/aethmeaavnee-del/myself/blob/main/10.jpg?raw=true", category: "PHOTOGRAPHY" },
+  { id: "p4", title: "Lakeside Reflections", image: "https://github.com/aethmeaavnee-del/myself/blob/main/12.jpg?raw=true", category: "PHOTOGRAPHY" },
+  { id: "p5", title: "Wildflowers in Bloom", image: "https://github.com/aethmeaavnee-del/myself/blob/main/6.jpg?raw=true", category: "PHOTOGRAPHY" },
+  { id: "p6", title: "Framed Perspective", image: "https://github.com/aethmeaavnee-del/myself/blob/main/7.jpg?raw=true", category: "PHOTOGRAPHY" },
 ];
 
 // --- Components ---
@@ -106,12 +103,22 @@ const FullscreenImage = ({ src, onClose }: { src: string | null, onClose: () => 
 const Foot = () => (
   <footer className="w-full py-10 px-6 md:px-[60px] border-t border-brand-border flex flex-col md:flex-row justify-between items-center gap-6 text-[12px] uppercase tracking-widest opacity-70 mt-auto">
     <div className="flex gap-6">
-      <a href="#" className="flex items-center gap-2 hover:text-brand-accent transition-colors">
-        Instagram
+      <a 
+        href="https://mail.google.com/mail/?view=cm&fs=1&to=aethmeaavnee@gmail.com" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="flex items-center gap-2 hover:text-brand-accent transition-colors"
+      >
+        <Mail size={14} /> Gmail
       </a>
       <span className="opacity-30">/</span>
-      <a href="#" className="flex items-center gap-2 hover:text-brand-accent transition-colors">
-        LinkedIn
+      <a 
+        href="https://www.linkedin.com/in/avnee-aethmea-b0099b3b5/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="flex items-center gap-2 hover:text-brand-accent transition-colors"
+      >
+        <Linkedin size={14} /> LinkedIn
       </a>
     </div>
     <p>&copy; 2026 Avnee Aethmea. All rights reserved.</p>
